@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Investing in Enterprise Ltd</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+:root{
+ --royal:#162a4f;
+ --gold:#D4AF37;
+ --glass:rgba(255,255,255,0.08);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Montserrat;background:var(--royal);color:#fff}
+.page{display:none;max-width:1200px;margin:60px auto;padding:50px;background:var(--glass);border-radius:18px}
+.page.active{display:block}
+header{text-align:center;padding:40px}
+h1,h2{font-family:Cinzel;color:var(--gold);letter-spacing:3px}
+nav{display:flex;justify-content:center;gap:25px;margin:25px 0;flex-wrap:wrap}
+nav button{background:none;border:none;color:#fff;opacity:.7;cursor:pointer}
+nav button.active,nav button:hover{color:var(--gold);opacity:1}
+footer{text-align:center;padding:35px;opacity:.7}
+
+/* SPLASH */
+#landing{
+ position:fixed;inset:0;
+ background:radial-gradient(circle at top,#1d3564,#0e1b34);
+ display:flex;align-items:center;justify-content:center;
+ z-index:5000;
+}
+.landing-box{text-align:center;animation:fade 1.6s}
+@keyframes fade{from{opacity:0;transform:translateY(25px)}to{opacity:1}}
+#enterBtn{
+ margin-top:30px;padding:14px 42px;
+ background:var(--gold);border:none;
+ border-radius:8px;font-size:1.1em;cursor:pointer
+}
+.lang-flags{margin-top:22px;display:flex;justify-content:center;gap:14px}
+.lang-flags button{background:none;border:none;font-size:1.7em;cursor:pointer}
+
+/* COOKIE */
+#cookieBox{
+ position:fixed;bottom:30px;left:50%;
+ transform:translateX(-50%);
+ background:#000;padding:25px;
+ border-radius:14px;display:none;
+ max-width:520px;text-align:center
+}
+#cookieBox button{margin:12px 8px 0;padding:8px 18px;font-weight:600}
+.accept{background:var(--gold);border:none}
+.decline{background:none;border:2px solid var(--gold);color:var(--gold)}
+
+/* PORTFOLIO */
+.portfolio ul{list-style:none;padding:0}
+.portfolio li{
+ display:flex;gap:18px;padding:25px;margin-bottom:20px;
+ background:rgba(255,255,255,.05);
+ border-left:5px solid var(--gold);border-radius:10px;
+ align-items:flex-start;
+}
+.portfolio i{color:var(--gold);font-size:1.7em;margin-top:5px}
+
+/* TEAM */
+.team ul{list-style:none;padding:0}
+.team li{
+ padding:20px 0;border-bottom:1px solid rgba(255,255,255,.2);
+}
+.team strong{color:var(--gold)}
+.team p{margin-top:6px;opacity:.9}
+.team-member-email{display:block;opacity:0.85;margin-top:4px;color:#D4AF37;text-decoration:none}
+.team-member-email:hover{text-decoration:underline}
+
+/* HERO HOME */
+.hero{
+  height:70vh;
+  background:url("https://s1.directupload.eu/images/260113/h2yvtxo7.jpg") center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+}
+.hero h2{
+  font-family:'Cinzel',serif;
+  color:var(--gold);
+  font-size:2.8em;
+  background:rgba(0,0,0,.55);
+  padding:30px 40px;
+  border-radius:14px;
+  text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<!-- SPLASH -->
+<div id="landing">
+ <div class="landing-box">
+   <img src="https://s1.directupload.eu/images/260107/edvvx6vp.png" width="260">
+   <br>
+   <button id="enterBtn" onclick="enterSite()"></button>
+   <div class="lang-flags">
+     <button onclick="setLang('en')">🇬🇧</button>
+     <button onclick="setLang('de')">🇩🇪</button>
+     <button onclick="setLang('fr')">🇫🇷</button>
+     <button onclick="setLang('es')">🇪🇸</button>
+     <button onclick="setLang('pt')">🇵🇹</button>
+   </div>
+ </div>
+</div>
+
+<!-- COOKIE -->
+<div id="cookieBox">
+ <p id="cookieText"></p>
+ <button class="accept" id="cookieAccept" onclick="closeCookie()"></button>
+ <button class="decline" id="cookieDecline" onclick="closeCookie()"></button>
+</div>
+
+<header>
+<h1>Investing in Enterprise Ltd</h1>
+<nav>
+<button data-nav="home" onclick="go('home',this)"></button>
+<button data-nav="about" onclick="go('about',this)"></button>
+<button data-nav="portfolio" onclick="go('portfolio',this)"></button>
+<button data-nav="team" onclick="go('team',this)"></button>
+<button data-nav="impressum" onclick="go('impressum',this)"></button>
+<button data-nav="privacy" onclick="go('privacy',this)"></button>
+</nav>
+</header>
+
+<!-- HOME -->
+<section id="home" class="page active">
+  <div class="hero">
+    <h2 data-i18n="hero"></h2>
+  </div>
+</section>
+
+<section id="about" class="page">
+<h2 data-i18n="aboutTitle"></h2>
+<p data-i18n="aboutText"></p>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio" class="page portfolio">
+<h2>Our Portfolio</h2>
+<ul>
+<li><i class="fas fa-briefcase"></i><div><strong>Wealth Management</strong><p>Long-term capital preservation and structured growth.</p></div></li>
+<li><i class="fas fa-puzzle-piece"></i><div><strong>Bespoke Investment Solutions</strong><p>Tailored strategies aligned with client objectives.</p></div></li>
+<li><i class="fas fa-building"></i><div><strong>Real Estate</strong><p>Premium residential and commercial investments.</p></div></li>
+<li><i class="fab fa-bitcoin"></i><div><strong>Digital Assets</strong><p>Selective exposure to emerging technologies.</p></div></li>
+<li><i class="fas fa-clock"></i><div><strong>Luxury Timepiece Trading</strong><p>High-end collectible watch trading.</p></div></li>
+</ul>
+</section>
+
+<!-- TEAM -->
+<section id="team" class="page team">
+<h2>Leadership Team</h2>
+<ul>
+<li>
+<strong>John Dowton Croft</strong> — Chief Executive Officer
+<p>Strategic leadership and vision.</p>
+<a href="mailto:J.D.Croft@investingenterprise.com" class="team-member-email">J.D.Croft@investingenterprise.com</a>
+</li>
+<li>
+<strong>Jesaja Stern</strong> — Co-Founder
+<p>Institutional partnerships.</p>
+<a href="mailto:jesaja.stern@investingenterprise.com" class="team-member-email">jesaja.stern@investingenterprise.com</a>
+</li>
+<li>
+<strong>Jacob Greenberg</strong> — Head of Alternative Investments
+<p>Leading alternative investment strategies.</p>
+<a href="mailto:Jacob.Greenberg@investingenterprise.com" class="team-member-email">Jacob.Greenberg@investingenterprise.com</a>
+</li>
+<li>
+<strong>Isaak Zoloratev</strong> — Chief Financial Officer
+<p>Financial governance and risk control.</p>
+<a href="mailto:issak.zoloratev@investingenterprise.com" class="team-member-email">issak.zoloratev@investingenterprise.com</a>
+</li>
+<li>
+<strong>Douglas Yamamura</strong> — Risk Management
+<p>Enterprise risk oversight and compliance.</p>
+<a href="mailto:Douglas.Yamamura@investingenterprise.com" class="team-member-email">Douglas.Yamamura@investingenterprise.com</a>
+</li>
+<li>
+<strong>Elias Noah</strong> — Portfolio Manager
+<p>Portfolio strategy and client management.</p>
+<a href="mailto:elias.noah@investingenterprise.com" class="team-member-email">elias.noah@investingenterprise.com</a>
+</li>
+<li>
+<strong>Rachel Mizrahi</strong> — Lead Analyst
+<p>Market research and macroeconomic analysis.</p>
+<a href="mailto:Rachel.Mizrahi@investingenterprise.com" class="team-member-email">Rachel.Mizrahi@investingenterprise.com</a>
+</li>
+</ul>
+</section>
+
+<!-- IMPRESSUM -->
+<section id="impressum" class="page">
+<h2 data-i18n="impressumTitle"></h2>
+<p><strong>Company:</strong> Investing in Enterprise Ltd</p>
+<p><strong>Address:</strong> 1st Floor, 18 Queens Road (Church St Entrance), Brighton, East Sussex, United Kingdom, BN1 3XA</p>
+<p><strong>Company Number:</strong> 02192851</p>
+<p><strong>Email:</strong> <a href="mailto:office@investingenterprise.com" style="color:#D4AF37;text-decoration:none">office@investingenterprise.com</a></p>
+<p><strong>Registered in:</strong> United Kingdom</p>
+<p><strong>Founded:</strong> 1987</p>
+</section>
+
+<!-- PRIVACY -->
+<section id="privacy" class="page">
+<h2 data-i18n="privacyTitle"></h2>
+<p data-i18n="privacyText"></p>
+</section>
+
+<footer>© 1987–2025 Investing in Enterprise Ltd · London</footer>
+
+<script>
+const T={
+en:{
+enter:"Enter",
+cookie:"This website uses cookies. You may accept or decline.",
+accept:"Accept",decline:"Decline",
+nav:{home:"Home",about:"About",portfolio:"Portfolio",team:"Team",impressum:"Impressum",privacy:"Privacy"},
+hero:"Advancing Wealth Through Strategic Investments",
+aboutTitle:"About Us",
+aboutText:"Founded in 1987, Investing in Enterprise Ltd is an independent private investment firm built on discipline, discretion, and long-term vision.",
+impressumTitle:"Impressum",
+privacyTitle:"Privacy Policy",
+privacyText:"Personal data is processed in accordance with UK GDPR and EU GDPR."
+},
+de:{
+enter:"Eintreten",
+cookie:"Diese Website verwendet Cookies.",
+accept:"Akzeptieren",decline:"Ablehnen",
+nav:{home:"Start",about:"Über uns",portfolio:"Portfolio",team:"Team",impressum:"Impressum",privacy:"Datenschutz"},
+hero:"Vermögensaufbau durch strategische Investitionen",
+aboutTitle:"Über uns",
+aboutText:"Gegründet 1987 ist Investing in Enterprise Ltd eine unabhängige Investmentgesellschaft.",
+impressumTitle:"Impressum",
+privacyTitle:"Datenschutz",
+privacyText:"Datenverarbeitung gemäß DSGVO."
+},
+fr:{
+enter:"Entrer",
+cookie:"Ce site utilise des cookies.",
+accept:"Accepter",decline:"Refuser",
+nav:{home:"Accueil",about:"À propos",portfolio:"Portefeuille",team:"Équipe",impressum:"Mentions légales",privacy:"Confidentialité"},
+hero:"Développer le patrimoine par des investissements stratégiques",
+aboutTitle:"À propos",
+aboutText:"Fondée en 1987, Investing in Enterprise Ltd est une société d’investissement privée indépendante.",
+impressumTitle:"Mentions légales",
+privacyTitle:"Politique de confidentialité",
+privacyText:"Traitement des données conforme au RGPD."
+},
+es:{
+enter:"Entrar",
+cookie:"Este sitio utiliza cookies.",
+accept:"Aceptar",decline:"Rechazar",
+nav:{home:"Inicio",about:"Sobre",portfolio:"Portafolio",team:"Equipo",impressum:"Aviso legal",privacy:"Privacidad"},
+hero:"Impulsando el patrimonio mediante inversiones estratégicas",
+aboutTitle:"Sobre nosotros",
+aboutText:"Fundada en 1987, Investing in Enterprise Ltd es una firma de inversión privada.",
+impressumTitle:"Aviso legal",
+privacyTitle:"Política de privacidad",
+privacyText:"Tratamiento de datos conforme al RGPD."
+},
+pt:{
+enter:"Entrar",
+cookie:"Este site utiliza cookies.",
+accept:"Aceitar",decline:"Recusar",
+nav:{home:"Início",about:"Sobre",portfolio:"Portfólio",team:"Equipe",impressum:"Aviso legal",privacy:"Privacidade"},
+hero:"Avançando o patrimônio por meio de investimentos estratégicos",
+aboutTitle:"Sobre nós",
+aboutText:"Fundada em 1987, Investing in Enterprise Ltd é uma empresa de investimentos privada.",
+impressumTitle:"Aviso legal",
+privacyTitle:"Política de privacidade",
+privacyText:"Processamento de dados conforme o RGPD."
+}
+};
+
+function setLang(l){
+ localStorage.setItem("lang",l);
+ enterBtn.innerText=T[l].enter;
+ cookieText.innerText=T[l].cookie;
+ cookieAccept.innerText=T[l].accept;
+ cookieDecline.innerText=T[l].decline;
+ document.querySelectorAll("[data-i18n]").forEach(e=>e.innerText=T[l][e.dataset.i18n]);
+ document.querySelectorAll("[data-nav]").forEach(b=>b.innerText=T[l].nav[b.dataset.nav]);
+}
+function enterSite(){landing.style.display="none";cookieBox.style.display="block";}
+function closeCookie(){cookieBox.style.display="none";}
+function go(id,btn){
+ document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+ document.getElementById(id).classList.add("active");
+ document.querySelectorAll("nav button").forEach(b=>b.classList.remove("active"));
+ btn.classList.add("active");
+}
+setLang(localStorage.getItem("lang")||"en");
+</script>
+
+</body>
+</html>
