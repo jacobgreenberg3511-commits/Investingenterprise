@@ -28,7 +28,12 @@ nav{display:flex;justify-content:center;gap:20px;margin-top:25px;flex-wrap:wrap}
 nav button{background:none;border:none;color:var(--gold);cursor:pointer;padding:6px 10px}
 nav button.active,nav button:hover{color:#fff}
 nav i{font-size:1.3em}
-nav span{display:block;font-size:.85em;margin-top:4px}
+nav span{display:block;font-size:.85em}
+
+/* LANGUAGE SWITCHER */
+.language-switcher{margin:15px 0;text-align:center}
+.language-switcher button{margin:0 5px;padding:5px 10px;border:2px solid var(--gold);background:transparent;color:var(--gold);border-radius:6px;cursor:pointer;font-size:0.9em}
+.language-switcher button:hover{background:rgba(212,175,55,.15)}
 
 /* PAGES */
 .page{display:none;padding:60px 20px;max-width:1200px;margin:auto}
@@ -55,10 +60,23 @@ h2{font-family:'Cinzel',serif;color:var(--gold);text-align:center;margin-bottom:
 .portfolio strong{color:var(--gold)}
 
 /* TEAM */
-.team ul{list-style:none}
-.team li{padding:18px;margin-bottom:15px;background:rgba(255,255,255,.04);border-left:4px solid var(--gold);border-radius:10px}
+.team ul{list-style:none;padding:0}
+.team li{
+    display:flex;
+    flex-direction:column; /* stack vertically */
+    padding:18px;
+    margin-bottom:15px;
+    background:rgba(255,255,255,.04);
+    border-left:4px solid var(--gold);
+    border-radius:10px;
+    word-wrap: break-word; /* wrap long text */
+}
 .team strong{color:var(--gold)}
-.team a{color:#cbd5e1;font-size:.9em}
+.team a{
+    color:#cbd5e1;
+    font-size:.9em;
+    word-break: break-all; /* wrap long emails */
+}
 .team p{margin-top:6px;color:var(--text)}
 
 /* FOOTER */
@@ -77,11 +95,6 @@ font-size:.95em;color:#e2e8f0;
 .cookie-buttons .accept{background:var(--gold);color:#0f1e3a}
 .cookie-buttons .decline{background:none;border:1px solid var(--gold);color:var(--gold)}
 .cookie-buttons .manage{background:#475569;color:#fff}
-
-/* LANGUAGE SWITCHER */
-.language-switcher{margin:15px 0;text-align:center}
-.language-switcher button{margin:0 5px;padding:5px 10px;border:2px solid var(--gold);background:transparent;color:var(--gold);border-radius:6px;cursor:pointer;font-size:0.9em}
-.language-switcher button:hover{background:rgba(212,175,55,.15)}
 </style>
 </head>
 <body>
@@ -123,7 +136,7 @@ font-size:.95em;color:#e2e8f0;
 <section class="page" data-page="about">
 <h2 data-i18n="aboutTitle">About the Firm</h2>
 <div class="card">
-<p data-i18n="aboutText">Since its founding in 1987, Investing Enterprise has been committed to responsible capital stewardship, strategic allocation, and long-term value creation. Our philosophy prioritizes discipline, diversification, and downside protection across market cycles.</p>
+<p data-i18n="aboutText">Since its founding in 1987, Investing Enterprise has been committed to responsible capital stewardship, strategic allocation, and long-term value creation.</p>
 </div>
 </section>
 
@@ -214,62 +227,38 @@ document.getElementById("cookie").style.display="flex";
 
 // Translations
 const translations = {
-en:{
-navOverview:"Overview", navAbout:"Firm", navPortfolio:"Investments", navTeam:"Leadership", navContact:"Contact", navImpressum:"Impressum", navPrivacy:"Privacy",
-heroTitle:"Strategic Investment Management Since 1987",
-heroText:"Investing Enterprise is an independent, privately structured investment firm focused on long-term capital preservation, disciplined growth strategies, and institutional-grade risk management.",
-metric1:"Capital Under Management", metric2:"Annual Revenue", metric3:"Active Clients", metric4:"Founded",
-aboutTitle:"About the Firm", aboutText:"Since its founding in 1987, Investing Enterprise has been committed to responsible capital stewardship, strategic allocation, and long-term value creation.",
-portfolioTitle:"Investment Portfolio",
-privacyTitle:"Privacy Policy (GDPR)",
-impressumTitle:"Impressum"
-},
-de:{
-navOverview:"Überblick", navAbout:"Gesellschaft", navPortfolio:"Investitionen", navTeam:"Führung", navContact:"Kontakt", navImpressum:"Impressum", navPrivacy:"Datenschutz",
-heroTitle:"Strategisches Investmentmanagement seit 1987",
-heroText:"Investing Enterprise ist eine unabhängige, privat strukturierte Investmentgesellschaft mit Fokus auf langfristige Kapitalerhaltung, disziplinierte Wachstumsstrategien und institutionelle Risikosteuerung.",
-metric1:"Verwaltetes Kapital", metric2:"Jahresumsatz", metric3:"Aktive Kunden", metric4:"Gegründet",
-aboutTitle:"Über die Gesellschaft", aboutText:"Seit der Gründung 1987 verpflichtet sich Investing Enterprise zur verantwortungsvollen Kapitalverwaltung, strategischen Allokation und langfristiger Wertschöpfung.",
-portfolioTitle:"Investitionsportfolio",
-privacyTitle:"Datenschutzerklärung (DSGVO)",
-impressumTitle:"Impressum"
-},
-fr:{
-navOverview:"Vue d'ensemble", navAbout:"Société", navPortfolio:"Investissements", navTeam:"Direction", navContact:"Contact", navImpressum:"Mentions légales", navPrivacy:"Confidentialité",
-heroTitle:"Gestion stratégique des investissements depuis 1987",
-heroText:"Investing Enterprise est une société d'investissement indépendante et privée axée sur la préservation du capital à long terme, des stratégies de croissance disciplinées et une gestion des risques de niveau institutionnel.",
-metric1:"Capital sous gestion", metric2:"Revenus annuels", metric3:"Clients actifs", metric4:"Fondée",
-aboutTitle:"À propos de la société", aboutText:"Depuis sa fondation en 1987, Investing Enterprise s'engage dans la gestion responsable du capital, l'allocation stratégique et la création de valeur à long terme.",
-portfolioTitle:"Portefeuille d'investissement",
-privacyTitle:"Politique de confidentialité (RGPD)",
-impressumTitle:"Mentions légales"
-},
-es:{
-navOverview:"Resumen", navAbout:"Empresa", navPortfolio:"Inversiones", navTeam:"Liderazgo", navContact:"Contacto", navImpressum:"Aviso legal", navPrivacy:"Privacidad",
-heroTitle:"Gestión estratégica de inversiones desde 1987",
-heroText:"Investing Enterprise es una firma de inversión independiente y privada enfocada en la preservación de capital a largo plazo, estrategias de crecimiento disciplinadas y gestión de riesgos de nivel institucional.",
-metric1:"Capital bajo gestión", metric2:"Ingresos anuales", metric3:"Clientes activos", metric4:"Fundada",
-aboutTitle:"Sobre la empresa", aboutText:"Desde su fundación en 1987, Investing Enterprise se ha comprometido con la gestión responsable del capital, la asignación estratégica y la creación de valor a largo plazo.",
-portfolioTitle:"Cartera de inversión",
-privacyTitle:"Política de privacidad (GDPR)",
-impressumTitle:"Aviso legal"
-}
+en:{navOverview:"Overview",navAbout:"Firm",navPortfolio:"Investments",navTeam:"Leadership",navContact:"Contact",navImpressum:"Impressum",navPrivacy:"Privacy",
+heroTitle:"Strategic Investment Management Since 1987",heroText:"Investing Enterprise is an independent, privately structured investment firm focused on long-term capital preservation, disciplined growth strategies, and institutional-grade risk management.",
+metric1:"Capital Under Management",metric2:"Annual Revenue",metric3:"Active Clients",metric4:"Founded",
+aboutTitle:"About the Firm",aboutText:"Since its founding in 1987, Investing Enterprise has been committed to responsible capital stewardship, strategic allocation, and long-term value creation.",
+portfolioTitle:"Investment Portfolio",privacyTitle:"Privacy Policy (GDPR)",impressumTitle:"Impressum"},
+de:{navOverview:"Überblick",navAbout:"Gesellschaft",navPortfolio:"Investitionen",navTeam:"Führung",navContact:"Kontakt",navImpressum:"Impressum",navPrivacy:"Datenschutz",
+heroTitle:"Strategisches Investmentmanagement seit 1987",heroText:"Investing Enterprise ist eine unabhängige, privat strukturierte Investmentgesellschaft mit Fokus auf langfristige Kapitalerhaltung, disziplinierte Wachstumsstrategien und institutionelle Risikosteuerung.",
+metric1:"Verwaltetes Kapital",metric2:"Jahresumsatz",metric3:"Aktive Kunden",metric4:"Gegründet",
+aboutTitle:"Über die Gesellschaft",aboutText:"Seit der Gründung 1987 verpflichtet sich Investing Enterprise zur verantwortungsvollen Kapitalverwaltung, strategischen Allokation und langfristiger Wertschöpfung.",
+portfolioTitle:"Investitionsportfolio",privacyTitle:"Datenschutzerklärung (DSGVO)",impressumTitle:"Impressum"},
+fr:{navOverview:"Vue d'ensemble",navAbout:"Société",navPortfolio:"Investissements",navTeam:"Direction",navContact:"Contact",navImpressum:"Mentions légales",navPrivacy:"Confidentialité",
+heroTitle:"Gestion stratégique des investissements depuis 1987",heroText:"Investing Enterprise est une société d'investissement indépendante et privée axée sur la préservation du capital à long terme, des stratégies de croissance disciplinées et une gestion des risques de niveau institutionnel.",
+metric1:"Capital sous gestion",metric2:"Revenus annuels",metric3:"Clients actifs",metric4:"Fondée",
+aboutTitle:"À propos de la société",aboutText:"Depuis sa fondation en 1987, Investing Enterprise s'engage dans la gestion responsable du capital, l'allocation stratégique et la création de valeur à long terme.",
+portfolioTitle:"Portefeuille d'investissement",privacyTitle:"Politique de confidentialité (RGPD)",impressumTitle:"Mentions légales"},
+es:{navOverview:"Resumen",navAbout:"Empresa",navPortfolio:"Inversiones",navTeam:"Liderazgo",navContact:"Contacto",navImpressum:"Aviso legal",navPrivacy:"Privacidad",
+heroTitle:"Gestión estratégica de inversiones desde 1987",heroText:"Investing Enterprise es una firma de inversión independiente y privada enfocada en la preservación de capital a largo plazo, estrategias de crecimiento disciplinadas y gestión de riesgos de nivel institucional.",
+metric1:"Capital bajo gestión",metric2:"Ingresos anuales",metric3:"Clientes activos",metric4:"Fundada",
+aboutTitle:"Sobre la empresa",aboutText:"Desde su fundación en 1987, Investing Enterprise se ha comprometido con la gestión responsable del capital, la asignación estratégica y la creación de valor a largo plazo.",
+portfolioTitle:"Cartera de inversión",privacyTitle:"Política de privacidad (GDPR)",impressumTitle:"Aviso legal"}
 };
 
 function setLang(lang){
-document.querySelectorAll('[data-i18n]').forEach(el=>{
-if(translations[lang][el.dataset.i18n]) el.innerText=translations[lang][el.dataset.i18n];
-});
-
-// Update cookie banner
+document.querySelectorAll('[data-i18n]').forEach(el=>{if(translations[lang][el.dataset.i18n]) el.innerText=translations[lang][el.dataset.i18n];});
+localStorage.setItem("lang",lang);
 if(lang==="de") cookieManageMsg="Cookie-Einstellungen können hier verwaltet werden.";
 else if(lang==="fr") cookieManageMsg="Les préférences de cookies peuvent être gérées ici.";
 else if(lang==="es") cookieManageMsg="Las preferencias de cookies se pueden gestionar aquí.";
 else cookieManageMsg="Cookie preferences can be managed here.";
 document.getElementById("cookie-text").innerText=cookieManageMsg;
-
-localStorage.setItem("lang",lang);
 }
 </script>
+
 </body>
 </html>
