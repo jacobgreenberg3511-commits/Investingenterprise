@@ -4,8 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Investing Enterprise</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 <style>
 :root{
 --navy:#0f1e3a;
@@ -13,90 +15,149 @@
 --gold:#d4af37;
 --glass:rgba(255,255,255,.06);
 --text:#e5e7eb;
---cookie-bg:#1e293b;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Montserrat',sans-serif;background:var(--navy);color:#fff;padding-bottom:120px;transition:padding 0.3s}
+body{font-family:'Montserrat',sans-serif;background:var(--navy);color:#fff}
 
 /* HEADER */
-header{padding:30px;background:linear-gradient(135deg,var(--navy-light),var(--navy));text-align:center}
+header{
+padding:30px;
+background:linear-gradient(135deg,var(--navy-light),var(--navy));
+text-align:center;
+}
 header img{max-height:95px}
-header h1{font-family:'Cinzel',serif;color:var(--gold);margin-top:10px;letter-spacing:3px}
+header h1{
+font-family:'Cinzel',serif;
+color:var(--gold);
+margin-top:10px;
+letter-spacing:3px;
+}
 
 /* NAV */
-nav{display:flex;justify-content:center;gap:20px;margin-top:25px;flex-wrap:wrap}
-nav button{background:none;border:none;color:var(--gold);cursor:pointer;padding:6px 10px}
-nav button.active,nav button:hover{color:#fff}
+nav{
+display:flex;
+justify-content:center;
+gap:20px;
+margin-top:25px;
+flex-wrap:wrap;
+}
+nav button{
+background:none;
+border:none;
+color:var(--gold);
+cursor:pointer;
+padding:6px 10px;
+}
+nav button.active,
+nav button:hover{color:#fff}
 nav i{font-size:1.3em}
-nav span{display:block;font-size:.85em}
-
-/* LANGUAGE SWITCHER */
-.language-switcher{margin:15px 0;text-align:center}
-.language-switcher button{margin:0 5px;padding:5px 10px;border:2px solid var(--gold);background:transparent;color:var(--gold);border-radius:6px;cursor:pointer;font-size:0.9em}
-.language-switcher button:hover{background:rgba(212,175,55,.15)}
+nav span{
+display:block;
+font-size:.85em;
+}
 
 /* PAGES */
-.page{display:none;padding:60px 20px;max-width:1200px;margin:auto}
+.page{
+display:none;
+padding:60px 20px;
+max-width:1200px;
+margin:auto;
+}
 .page.active{display:block}
-h2{font-family:'Cinzel',serif;color:var(--gold);text-align:center;margin-bottom:40px}
+h2{
+font-family:'Cinzel',serif;
+color:var(--gold);
+text-align:center;
+margin-bottom:40px;
+}
 
 /* HERO */
 .hero{text-align:center}
 .hero h2{font-size:2.5em}
-.hero p{max-width:850px;margin:20px auto 50px;font-size:1.1em;color:var(--text)}
+.hero p{
+max-width:850px;
+margin:20px auto 50px;
+font-size:1.1em;
+color:var(--text);
+}
 
 /* METRICS */
-.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-bottom:40px}
-.metric{background:var(--glass);padding:20px;border-radius:12px;text-align:center;border-top:3px solid var(--gold)}
-.metric strong{display:block;font-size:1.4em;color:var(--gold)}
+.metrics{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+margin-bottom:40px;
+}
+.metric{
+background:var(--glass);
+padding:20px;
+border-radius:12px;
+text-align:center;
+border-top:3px solid var(--gold);
+}
+.metric strong{
+display:block;
+font-size:1.4em;
+color:var(--gold);
+}
 
 /* CARD */
-.card{background:var(--glass);padding:30px;border-radius:12px;margin-bottom:30px}
+.card{
+background:var(--glass);
+padding:30px;
+border-radius:12px;
+margin-bottom:30px;
+}
 
 /* PORTFOLIO */
 .portfolio ul{list-style:none}
-.portfolio li{display:flex;gap:15px;padding:20px;margin-bottom:15px;background:rgba(255,255,255,.04);border-left:4px solid var(--gold);border-radius:10px}
-.portfolio i{font-size:1.5em;color:var(--gold);margin-top:4px}
+.portfolio li{
+display:flex;
+gap:15px;
+padding:20px;
+margin-bottom:15px;
+background:rgba(255,255,255,.04);
+border-left:4px solid var(--gold);
+border-radius:10px;
+}
+.portfolio i{
+font-size:1.5em;
+color:var(--gold);
+margin-top:4px;
+}
 .portfolio strong{color:var(--gold)}
 
 /* TEAM */
 .team ul{list-style:none;padding:0}
 .team li{
-    display:flex;
-    flex-direction:column; /* stack vertically */
-    padding:18px;
-    margin-bottom:15px;
-    background:rgba(255,255,255,.04);
-    border-left:4px solid var(--gold);
-    border-radius:10px;
-    word-wrap: break-word; /* wrap long text */
+display:flex;
+flex-direction:column;
+padding:18px;
+margin-bottom:15px;
+background:rgba(255,255,255,.04);
+border-left:4px solid var(--gold);
+border-radius:10px;
 }
 .team strong{color:var(--gold)}
 .team a{
-    color:#cbd5e1;
-    font-size:.9em;
-    word-break: break-all; /* wrap long emails */
+color:#cbd5e1;
+font-size:.9em;
+word-break: break-all;
 }
-.team p{margin-top:6px;color:var(--text)}
+.team p{
+margin-top:6px;
+color:var(--text);
+}
 
 /* FOOTER */
-footer{text-align:center;padding:25px;font-size:.8em}
-
-/* COOKIE BANNER */
-.cookie{
-position:fixed;bottom:0;left:0;width:100%;
-background:var(--cookie-bg);padding:15px 20px;
-display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;
-box-shadow:0 -2px 15px rgba(0,0,0,0.4);z-index:9999;
-font-size:.95em;color:#e2e8f0;
+footer{
+text-align:center;
+padding:25px;
+font-size:.8em;
 }
-.cookie-text{flex:1;min-width:200px;margin-right:15px}
-.cookie-buttons button{margin-left:10px;padding:6px 14px;border-radius:6px;border:none;cursor:pointer;font-weight:500;font-size:.9em}
-.cookie-buttons .accept{background:var(--gold);color:#0f1e3a}
-.cookie-buttons .decline{background:none;border:1px solid var(--gold);color:var(--gold)}
-.cookie-buttons .manage{background:#475569;color:#fff}
 </style>
 </head>
+
 <body>
 
 <header>
@@ -104,159 +165,155 @@ font-size:.95em;color:#e2e8f0;
 <h1>Investing Enterprise</h1>
 
 <nav>
-<button class="active" onclick="showPage('home',this)"><i class="fas fa-chart-line"></i><span data-i18n="navOverview">Overview</span></button>
-<button onclick="showPage('about',this)"><i class="fas fa-building"></i><span data-i18n="navAbout">Firm</span></button>
-<button onclick="showPage('portfolio',this)"><i class="fas fa-briefcase"></i><span data-i18n="navPortfolio">Investments</span></button>
-<button onclick="showPage('team',this)"><i class="fas fa-users"></i><span data-i18n="navTeam">Leadership</span></button>
-<button onclick="showPage('contact',this)"><i class="fas fa-envelope"></i><span data-i18n="navContact">Contact</span></button>
-<button onclick="showPage('impressum',this)"><i class="fas fa-scale-balanced"></i><span data-i18n="navImpressum">Impressum</span></button>
-<button onclick="showPage('privacy',this)"><i class="fas fa-user-shield"></i><span data-i18n="navPrivacy">Privacy</span></button>
-</nav>
+<button class="active" onclick="showPage('home',this)">
+<i class="fas fa-chart-line"></i><span>Overview</span>
+</button>
 
-<div class="language-switcher">
-<button onclick="setLang('en')">🇬🇧 English</button>
-<button onclick="setLang('de')">🇩🇪 Deutsch</button>
-<button onclick="setLang('fr')">🇫🇷 Français</button>
-<button onclick="setLang('es')">🇪🇸 Español</button>
-</div>
+<button onclick="showPage('about',this)">
+<i class="fas fa-building"></i><span>Firm</span>
+</button>
+
+<button onclick="showPage('portfolio',this)">
+<i class="fas fa-briefcase"></i><span>Investments</span>
+</button>
+
+<button onclick="showPage('team',this)">
+<i class="fas fa-users"></i><span>Leadership</span>
+</button>
+
+<button onclick="showPage('contact',this)">
+<i class="fas fa-envelope"></i><span>Contact</span>
+</button>
+</nav>
 </header>
 
-<!-- PAGES -->
+<!-- HOME -->
 <section class="page hero active" data-page="home">
-<h2 data-i18n="heroTitle">Strategic Investment Management Since 1987</h2>
-<p data-i18n="heroText">Investing Enterprise is an independent, privately structured investment firm focused on long-term capital preservation, disciplined growth strategies, and institutional-grade risk management.</p>
+<h2>Strategic Investment Management Since 1987</h2>
+<p>
+Investing Enterprise is an independent, privately structured investment firm
+focused on long-term capital preservation, disciplined growth strategies,
+and institutional-grade risk management.
+</p>
+
 <div class="metrics">
-<div class="metric"><strong>$400M</strong> <span data-i18n="metric1">Capital Under Management</span></div>
-<div class="metric"><strong>$80M</strong> <span data-i18n="metric2">Annual Revenue</span></div>
-<div class="metric"><strong>80</strong> <span data-i18n="metric3">Active Clients</span></div>
-<div class="metric"><strong>1987</strong> <span data-i18n="metric4">Founded</span></div>
+<div class="metric"><strong>$400M</strong> Capital Under Management</div>
+<div class="metric"><strong>$80M</strong> Annual Revenue</div>
+<div class="metric"><strong>80</strong> Active Clients</div>
+<div class="metric"><strong>1987</strong> Founded</div>
 </div>
 </section>
 
+<!-- ABOUT -->
 <section class="page" data-page="about">
-<h2 data-i18n="aboutTitle">About the Firm</h2>
+<h2>About the Firm</h2>
 <div class="card">
-<p data-i18n="aboutText">Since its founding in 1987, Investing Enterprise has been committed to responsible capital stewardship, strategic allocation, and long-term value creation.</p>
+<p>
+Since its founding in 1987, Investing Enterprise has been committed to
+responsible capital stewardship, strategic allocation, and long-term value creation.
+</p>
 </div>
 </section>
 
+<!-- PORTFOLIO -->
 <section class="page" data-page="portfolio">
-<h2 data-i18n="portfolioTitle">Investment Portfolio</h2>
+<h2>Investment Portfolio</h2>
 <div class="card portfolio">
 <ul>
-<li><i class="fas fa-briefcase"></i><div><strong data-i18n="wmTitle">Wealth Management</strong><p data-i18n="wmText">Comprehensive portfolio structuring and advisory.</p></div></li>
-<li><i class="fas fa-puzzle-piece"></i><div><strong data-i18n="altTitle">Alternative Investments</strong><p data-i18n="altText">Non-traditional assets and special situations.</p></div></li>
-<li><i class="fas fa-building"></i><div><strong data-i18n="reTitle">Real Estate</strong><p data-i18n="reText">Selective residential and commercial investments.</p></div></li>
-<li><i class="fab fa-bitcoin"></i><div><strong data-i18n="cryptoTitle">Crypto Assets</strong><p data-i18n="cryptoText">Measured exposure with strict risk controls.</p></div></li>
-<li><i class="fas fa-coins"></i><div><strong data-i18n="metalTitle">Precious Metals</strong><p data-i18n="metalText">Hedge against inflation and uncertainty.</p></div></li>
-<li><i class="fas fa-clock"></i><div><strong data-i18n="watchTitle">Luxury Timepieces</strong><p data-i18n="watchText">Curated acquisition and trading of collectible watches.</p></div></li>
+
+<li><i class="fas fa-briefcase"></i><div><strong>Wealth Management</strong><p>Comprehensive portfolio structuring and advisory.</p></div></li>
+<li><i class="fas fa-puzzle-piece"></i><div><strong>Alternative Investments</strong><p>Non-traditional assets and special situations.</p></div></li>
+<li><i class="fas fa-building"></i><div><strong>Real Estate</strong><p>Selective residential and commercial investments.</p></div></li>
+<li><i class="fab fa-bitcoin"></i><div><strong>Crypto Assets</strong><p>Measured exposure with strict risk controls.</p></div></li>
+<li><i class="fas fa-coins"></i><div><strong>Precious Metals</strong><p>Hedge against inflation and uncertainty.</p></div></li>
+<li><i class="fas fa-clock"></i><div><strong>Luxury Timepieces</strong><p>Curated acquisition and trading of collectible watches.</p></div></li>
+
 </ul>
 </div>
 </section>
 
+<!-- TEAM -->
 <section class="page" data-page="team">
-<h2 data-i18n="teamTitle">Leadership Team</h2>
+<h2>Leadership Team</h2>
+
 <div class="card team">
 <ul>
-<li><strong>John Dowton Croft</strong> – Chief Executive Officer<br><a href="mailto:J.D.Croft@investingenterprise.com">J.D.Croft@investingenterprise.com</a><p>Overall strategic leadership and long-term investment vision.</p></li>
-<li><strong>Jesaja Stern</strong> – Co-Founder<br><a href="mailto:jesaja.stern@investingenterprise.com">jesaja.stern@investingenterprise.com</a><p>Strategic development and institutional relationships.</p></li>
-<li><strong>Jacob Greenberg</strong> – Head of Alternative Investments<br><a href="mailto:Jacob.Greenberg@investingenterprise.com">Jacob.Greenberg@investingenterprise.com</a><p>Leads alternative asset strategies and diversification initiatives.</p></li>
-<li><strong>Issak Zoloratev</strong> – Chief Financial Officer<br><a href="mailto:issak.zoloratev@investingenterprise.com">issak.zoloratev@investingenterprise.com</a><p>Financial governance, capital structure, and fiscal oversight.</p></li>
-<li><strong>Douglas Yamamura</strong> – Head of Risk Management<br><a href="mailto:Douglas.Yamamura@investingenterprise.com">Douglas.Yamamura@investingenterprise.com</a><p>Enterprise risk oversight and capital preservation strategies.</p></li>
-<li><strong>Elias Noah</strong> – Portfolio Manager<br><a href="mailto:elias.noah@investingenterprise.com">elias.noah@investingenterprise.com</a><p>Portfolio construction and long-term allocation management.</p></li>
-<li><strong>Rachel Mizrahi</strong> – Lead Analyst<br><a href="mailto:Rachel.Mizrahi@investingenterprise.com">Rachel.Mizrahi@investingenterprise.com</a><p>Market research, investment analysis, and due diligence.</p></li>
+
+<li>
+<strong>John Dowton Croft</strong> – Chief Executive Officer<br>
+<a href="mailto:J.D.Croft@investingenterprise.com">J.D.Croft@investingenterprise.com</a>
+<p>Provides overall strategic direction and oversees long-term investment vision and firm growth.</p>
+</li>
+
+<li>
+<strong>Jesaja Stern</strong> – Co-Founder<br>
+<a href="mailto:jesaja.stern@investingenterprise.com">jesaja.stern@investingenterprise.com</a>
+<p>Leads strategic partnerships, business development, and institutional relationships.</p>
+</li>
+
+<li>
+<strong>Jacob Greenberg</strong> – Head of Alternative Investments<br>
+<a href="mailto:Jacob.Greenberg@investingenterprise.com">Jacob.Greenberg@investingenterprise.com</a>
+<p>Manages alternative asset strategies, focusing on diversification and non-traditional opportunities.</p>
+</li>
+
+<li>
+<strong>Issak Zoloratev</strong> – Chief Financial Officer<br>
+<a href="mailto:issak.zoloratev@investingenterprise.com">issak.zoloratev@investingenterprise.com</a>
+<p>Oversees financial structure, capital allocation, and fiscal governance of the firm.</p>
+</li>
+
+<li>
+<strong>Douglas Yamamura</strong> – Head of Risk Management<br>
+<a href="mailto:Douglas.Yamamura@investingenterprise.com">Douglas.Yamamura@investingenterprise.com</a>
+<p>Ensures robust risk frameworks and capital preservation strategies across all investments.</p>
+</li>
+
+<li>
+<strong>Elias Noah</strong> – Portfolio Manager<br>
+<a href="mailto:elias.noah@investingenterprise.com">elias.noah@investingenterprise.com</a>
+<p>Responsible for portfolio construction, allocation strategies, and long-term performance management.</p>
+</li>
+
+<li>
+<strong>Rachel Mizrahi</strong> – Lead Analyst<br>
+<a href="mailto:Rachel.Mizrahi@investingenterprise.com">Rachel.Mizrahi@investingenterprise.com</a>
+<p>Conducts market research, financial analysis, and due diligence to support investment decisions.</p>
+</li>
+
+<li>
+<strong>Amir Patel</strong> – Controller<br>
+<a href="mailto:Amir.Patel@investingenterprise.com">Amir.Patel@investingenterprise.com</a>
+<p>Responsible for financial reporting, internal controls, and maintaining operational accuracy across the firm.</p>
+</li>
+
 </ul>
 </div>
 </section>
 
+<!-- CONTACT -->
 <section class="page" data-page="contact">
-<h2 data-i18n="contactTitle">Contact</h2>
+<h2>Contact</h2>
 <div class="card">
-<p>1st Floor, 18 Queens Road (Church St Entrance)<br>Brighton, East Sussex, BN1 3XA<br>United Kingdom<br><a href="mailto:office@investingenterprise.com">office@investingenterprise.com</a></p>
+<p>
+1st Floor, 18 Queens Road (Church St Entrance)<br>
+Brighton, East Sussex, BN1 3XA<br>
+United Kingdom<br>
+<a href="mailto:office@investingenterprise.com">office@investingenterprise.com</a>
+</p>
 </div>
 </section>
 
-<section class="page" data-page="impressum">
-<h2 data-i18n="impressumTitle">Impressum</h2>
-<div class="card">
-<p><strong>Company:</strong> Investing Enterprise<br><strong>Address:</strong> 1st Floor, 18 Queens Road, Brighton, East Sussex, BN1 3XA, UK<br><strong>Contact:</strong> office@investingenterprise.com<br><strong>Disclaimer:</strong> All information is for general purposes only.</p>
-</div>
-</section>
-
-<section class="page" data-page="privacy">
-<h2 data-i18n="privacyTitle">Privacy Policy (GDPR)</h2>
-<div class="card">
-<p>We respect your privacy and comply with GDPR. Cookies are used to enhance site experience. You may accept, decline, or manage preferences. Contact: <a href="mailto:office@investingenterprise.com">office@investingenterprise.com</a></p>
-</div>
-</section>
-
-<footer>© 1987–2025 Investing Enterprise</footer>
-
-<!-- COOKIE -->
-<div class="cookie" id="cookie">
-<div class="cookie-text" id="cookie-text"></div>
-<div class="cookie-buttons">
-<button class="accept" onclick="setCookie('accept')">Accept All</button>
-<button class="decline" onclick="setCookie('decline')">Decline All</button>
-<button class="manage" onclick="alert(cookieManageMsg)">Manage Preferences</button>
-</div>
-</div>
+<footer>
+© 1987–2026 Investing Enterprise
+</footer>
 
 <script>
-// Navigation
 function showPage(page, btn){
 document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
 document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
 document.querySelector(`[data-page="${page}"]`).classList.add('active');
 btn.classList.add('active');
-}
-
-// Cookie
-let cookieManageMsg="Cookie preferences can be managed here.";
-function setCookie(choice){
-localStorage.setItem("cookieConsent", choice);
-document.getElementById("cookie").style.display="none";
-}
-window.onload = ()=>{
-let lang = localStorage.getItem("lang") || "en";
-setLang(lang);
-if(!localStorage.getItem("cookieConsent")){
-document.getElementById("cookie").style.display="flex";
-}else{document.body.style.paddingBottom="0";}
-}
-
-// Translations
-const translations = {
-en:{navOverview:"Overview",navAbout:"Firm",navPortfolio:"Investments",navTeam:"Leadership",navContact:"Contact",navImpressum:"Impressum",navPrivacy:"Privacy",
-heroTitle:"Strategic Investment Management Since 1987",heroText:"Investing Enterprise is an independent, privately structured investment firm focused on long-term capital preservation, disciplined growth strategies, and institutional-grade risk management.",
-metric1:"Capital Under Management",metric2:"Annual Revenue",metric3:"Active Clients",metric4:"Founded",
-aboutTitle:"About the Firm",aboutText:"Since its founding in 1987, Investing Enterprise has been committed to responsible capital stewardship, strategic allocation, and long-term value creation.",
-portfolioTitle:"Investment Portfolio",privacyTitle:"Privacy Policy (GDPR)",impressumTitle:"Impressum"},
-de:{navOverview:"Überblick",navAbout:"Gesellschaft",navPortfolio:"Investitionen",navTeam:"Führung",navContact:"Kontakt",navImpressum:"Impressum",navPrivacy:"Datenschutz",
-heroTitle:"Strategisches Investmentmanagement seit 1987",heroText:"Investing Enterprise ist eine unabhängige, privat strukturierte Investmentgesellschaft mit Fokus auf langfristige Kapitalerhaltung, disziplinierte Wachstumsstrategien und institutionelle Risikosteuerung.",
-metric1:"Verwaltetes Kapital",metric2:"Jahresumsatz",metric3:"Aktive Kunden",metric4:"Gegründet",
-aboutTitle:"Über die Gesellschaft",aboutText:"Seit der Gründung 1987 verpflichtet sich Investing Enterprise zur verantwortungsvollen Kapitalverwaltung, strategischen Allokation und langfristiger Wertschöpfung.",
-portfolioTitle:"Investitionsportfolio",privacyTitle:"Datenschutzerklärung (DSGVO)",impressumTitle:"Impressum"},
-fr:{navOverview:"Vue d'ensemble",navAbout:"Société",navPortfolio:"Investissements",navTeam:"Direction",navContact:"Contact",navImpressum:"Mentions légales",navPrivacy:"Confidentialité",
-heroTitle:"Gestion stratégique des investissements depuis 1987",heroText:"Investing Enterprise est une société d'investissement indépendante et privée axée sur la préservation du capital à long terme, des stratégies de croissance disciplinées et une gestion des risques de niveau institutionnel.",
-metric1:"Capital sous gestion",metric2:"Revenus annuels",metric3:"Clients actifs",metric4:"Fondée",
-aboutTitle:"À propos de la société",aboutText:"Depuis sa fondation en 1987, Investing Enterprise s'engage dans la gestion responsable du capital, l'allocation stratégique et la création de valeur à long terme.",
-portfolioTitle:"Portefeuille d'investissement",privacyTitle:"Politique de confidentialité (RGPD)",impressumTitle:"Mentions légales"},
-es:{navOverview:"Resumen",navAbout:"Empresa",navPortfolio:"Inversiones",navTeam:"Liderazgo",navContact:"Contacto",navImpressum:"Aviso legal",navPrivacy:"Privacidad",
-heroTitle:"Gestión estratégica de inversiones desde 1987",heroText:"Investing Enterprise es una firma de inversión independiente y privada enfocada en la preservación de capital a largo plazo, estrategias de crecimiento disciplinadas y gestión de riesgos de nivel institucional.",
-metric1:"Capital bajo gestión",metric2:"Ingresos anuales",metric3:"Clientes activos",metric4:"Fundada",
-aboutTitle:"Sobre la empresa",aboutText:"Desde su fundación en 1987, Investing Enterprise se ha comprometido con la gestión responsable del capital, la asignación estratégica y la creación de valor a largo plazo.",
-portfolioTitle:"Cartera de inversión",privacyTitle:"Política de privacidad (GDPR)",impressumTitle:"Aviso legal"}
-};
-
-function setLang(lang){
-document.querySelectorAll('[data-i18n]').forEach(el=>{if(translations[lang][el.dataset.i18n]) el.innerText=translations[lang][el.dataset.i18n];});
-localStorage.setItem("lang",lang);
-if(lang==="de") cookieManageMsg="Cookie-Einstellungen können hier verwaltet werden.";
-else if(lang==="fr") cookieManageMsg="Les préférences de cookies peuvent être gérées ici.";
-else if(lang==="es") cookieManageMsg="Las preferencias de cookies se pueden gestionar aquí.";
-else cookieManageMsg="Cookie preferences can be managed here.";
-document.getElementById("cookie-text").innerText=cookieManageMsg;
 }
 </script>
 
